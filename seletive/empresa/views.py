@@ -46,4 +46,7 @@ def nova_empresa(request):
         messages.add_message(request, constants.SUCCESS, 'Empresa cadastrada com sucesso')
         return redirect('/home/empresas')
 
-        return HttpResponse(tecnologias)
+def empresas(request):
+    
+  
+    return render(request, 'empresa.html')
