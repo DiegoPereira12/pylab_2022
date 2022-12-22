@@ -47,6 +47,5 @@ def nova_empresa(request):
         return redirect('/home/empresas')
 
 def empresas(request):
-    
-  
-    return render(request, 'empresa.html')
+    empresas = Empresa.objects.all()
+    return render(request, 'empresa.html', {'empresas': empresas})
