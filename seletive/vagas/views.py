@@ -44,7 +44,8 @@ def nova_vaga(request):
 
 def vaga(request, id):
     vaga = get_object_or_404(Vagas, id=id)
-    return render(request, 'vaga.html', {'vaga': vaga})
+    tarefa = Tarefa.objects.filter(vaga=vaga).filter(realizada=False)
+    return render(request, 'vaga.html', {'vaga': vaga, 'tarefa': tarefa})
 
 def nova_tarefa(request, id_vaga):
     titulo = request.POST.get('titulo')
