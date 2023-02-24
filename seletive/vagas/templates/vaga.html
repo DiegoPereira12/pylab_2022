@@ -21,7 +21,7 @@
         <p>Progresso atual</p>
         
         <div style="width: 40%" class="progress">
-            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: {{vaga.progresso}}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 95%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
     </div>
 
@@ -59,13 +59,13 @@
                             <label>{{tarefa.titulo}}</label>
                             <label class="prioridade-bloco">
                                 {{tarefa.icon}}
-                                {{tarefa.prioridade_display}}
+                                {{tarefa.get_prioridade_display}}
                             </label>
                             <label class="prioridade-bloco">
                                 {{tarefa.data}}
                             </label>
                             <label class="prioridade-bloco">
-                                <a href="#" class="btn btn-success">Finalizado</a>
+                                <a href="{% 'realizar_tarefa' tarefa.id %}" class="btn btn-success">Finalizado</a>
                             </label>    
                         </div>
                     {% endfor %}
