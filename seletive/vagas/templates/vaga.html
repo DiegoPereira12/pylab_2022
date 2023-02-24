@@ -65,7 +65,7 @@
                                 {{tarefa.data}}
                             </label>
                             <label class="prioridade-bloco">
-                                <a href="{% 'realizar_tarefa' tarefa.id %}" class="btn btn-success">Finalizado</a>
+                                <a href="{% url 'realizar_tarefa' tarefa.id %}" class="btn btn-success">Finalizado</a>
                             </label>    
                         </div>
                     {% endfor %}
@@ -86,7 +86,7 @@
             </div>
 
             <div class="col-md">
-                <form>
+                <form action="{% url 'envia_email' vaga.id  %}" method="POST">{% csrf_token %}
                     <label>Assunto:</label>
                     <input name="assunto" type="text" class="form-control" placeholder="assunto">
                     <br>
