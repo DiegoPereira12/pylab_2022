@@ -49,7 +49,7 @@ def vaga(request, id):
     vaga = get_object_or_404(Vagas, id=id)
     tarefas = Tarefa.objects.filter(vaga=vaga).filter(realizada=False)
     emails = Emails.objects.filter(vaga=vaga)
-    return render(request, 'vaga.html', {'vaga': vaga, 'tarefas': tarefas, 'email': emails})
+    return render(request, 'vaga.html', {'vaga': vaga, 'tarefas': tarefas, 'emails': emails})
 
 def nova_tarefa(request, id_vaga):
     titulo = request.POST.get('titulo')
@@ -87,7 +87,7 @@ def envia_email(request, id_vaga):
     email = EmailMultiAlternatives(assunto, text_content, settings.EMAIL_HOST_USER, [vaga.email,])
     email.attach_alternative(html_content, "text/html")
 
-    if email.send():  
+    if email.send():
         mail = Emails(
             vaga=vaga,
             assunto=assunto,
@@ -97,6 +97,7 @@ def envia_email(request, id_vaga):
         mail.save()
         messages.add_message(request, constants.SUCCESS, 'Email enviado com sucesso.')
         return redirect(f'/vagas/vaga/{id_vaga}')
+
     else:
         mail = Emails(
             vaga=vaga,
