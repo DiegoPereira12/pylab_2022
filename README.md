@@ -13,8 +13,8 @@ A modelagem do projeto terá os seguintes modelos.
 - Vagas (empresa, titulo, nivel_experiencia, data_final, email, status, tecnologias_dominadas, tecnologias_estudar)
 
 ## Vagas
-- Tarefa(vaga, titulo, prioridade, data, realizada)
-- Emails(vaga, assunto, corpo, enviado)
+- Tarefa (vaga, titulo, prioridade, data, realizada)
+- Emails (vaga, assunto, corpo, enviado)
 
 A API deverá fornecer recursos para:
 
